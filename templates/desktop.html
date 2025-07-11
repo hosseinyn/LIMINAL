@@ -25,7 +25,7 @@
     <script>
         function changeWallpaper() {
             var body = document.getElementsByTagName('body')[0];
-            var images = ["Follow.jpg", "Azul.jpg", "Red moon desert.jpg", "Stonehenge.jpg", "Wind.jpg", "xp.jpg"]
+            var images = ["Follow.jpg", "Azul.jpg", "Red moon desert.jpg", "Stonehenge.jpg", "Wind.jpg", "xp.jpg" , "lobby.jpg" , "window.jpg" , "office.jpg" , "poolroom.jpg" , "deadmall.jpg" , "famouscity.jpg"]
             var currImage = document.querySelector('body').style.backgroundImage.split("/images/background/")[1];
             if (currImage !== "" && currImage !== undefined) {
                 var finalCurrImage = currImage.split('")')[0]
@@ -92,7 +92,7 @@
                 </div>
                 <div class="group">
                     <img src="{{ url_for('static', filename='styles/images/console.dll_14_1-2.png') }}" class="icon mt-4"
-                        onclick="playSound('click');" ondblclick="changeWallpaper()" id="change-wallpaper">
+                        ondblclick="playSound('click');changeWallpaper();" id="change-wallpaper" title="Double click">
                     <div class="songs icon-text no-select">wallpapers.exe</div>
                 </div>
                 <div class="group">
