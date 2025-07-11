@@ -115,6 +115,11 @@
                     <div class="icon-text no-select">Notepad</div>
                 </div>
 
+                <div class="group openHelpAndSupport" onclick="playSound('click');" data-bs-toggle="modal">
+                    <img src="../static/styles/images/shell32.dll_14_24-0.png" class="icon mt-4">
+                    <div class="icon-text no-select">Help and Support</div>
+                </div>
+
             </div>
         </div>
 
@@ -179,6 +184,49 @@
                                 <div class="liminal icon-text black">
                                     <span class="textarea" style="width: 100%;" role="textbox" contenteditable
                                         spellcheck="false">Keep dreaming , don't wake up ! Out of reallity , in your dreams worlds.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal" id="modal-support" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header no-select">
+                        <h1 class="modal-title fs-5 no-select" id="staticBackdropLabel">
+                            <img src="../static/styles/images/shell32.dll_14_24-0.png"
+                                style="width: 10%; margin-left: -0.8rem; margin-bottom: 0.3rem;">
+                            Help and Support
+                        </h1>
+                        <button class="close-btn no-select" data-bs-dismiss="modal" aria-label="Close"
+                            onclick="playSound('click')">X</button>
+                    </div>
+                    <div class="modal-body modal-body-scrollable" id="modal-body">
+                        <div class="btn-group btn-group-sm" role="group" id="options">
+                            <button type="button" class="btn option openErrorModal"
+                                onclick="playSound('click'); playSound('error')">File</button>
+                            <button type="button" class="btn option openErrorModal"
+                                onclick="playSound('click'); playSound('error')">Edit</button>
+                            <button type="button" class="btn option openErrorModal"
+                                onclick="playSound('click'); playSound('error')">Format</button>
+                            <button type="button" class="btn option openErrorModal"
+                                onclick="playSound('click'); playSound('error')">View</button>
+                            <button type="button" class="btn option openErrorModal"
+                                onclick="playSound('click'); playSound('error')">Help</button>
+                        </div>
+                        <div class="row">
+                            <div class="col col-md-12">
+                                <div class="liminal icon-text black">
+                                    <span class="textarea" style="width: 100%;" role="textbox" contenteditable
+                                        spellcheck="false">
+                                        You can visit: 
+                                        https://github.com/hosseinyn/LIMINAL/
+                                        https://github.com/NicolasSkopek/LIMINAL
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -344,6 +392,10 @@
 
                 $('.openNotePad').click(function () {
                     $('#modal-notepad').modal('show');
+                })
+
+                $('.openHelpAndSupport').click(function () {
+                    $('#modal-support').modal('show');
                 })
             });
         </script>
@@ -834,8 +886,8 @@
                                 Printers and Faxes
                             </div>
                             <div class="menu-2-separator"></div>
-                            <div class="col col-md-12 no-select mb-2 menu-item openErrorModal2"
-                                onclick="playSound('click'); playSound('error')">
+                            <div class="col col-md-12 no-select mb-2 menu-item openHelpAndSupport"
+                                onclick="playSound('click');">
                                 <img src="../static/styles/images/shell32.dll_14_24-0.png" style="width: 13%;">
                                 Help and Support
                             </div>
