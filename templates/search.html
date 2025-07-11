@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='styles/images/88-884071_google-png19625-old-google-logo.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/index.css') }}">
+    <title>Searched for {{query}}</title>
+</head>
+<body class="search-content">
+
+    {% block content %}
+            
+            <img src="{{ url_for('static' , filename='styles/images/88-884071_google-png19625-old-google-logo.png' )}}" alt="Google Png19625 - Old Google Logo @clipartmax.com">
+
+            <div style="margin-top: 10px;">
+                <input type="text" name="search-query" id="search-query" placeholder="Search now..." value="{{query}}">
+
+                <button onclick="search()">Search</button>
+                <button onclick="alert('Good job !')">Are you feeling lucky?</button>
+            </div>
+
+
+            <div class="results">
+                {% for result in results %}
+                    {% if query.lower() in result["name"].lower() or query.lower() in result["description"].lower() : %}
+                        <div class="result">
+                            <div style="display: flex; flex-direction: column;">
+                                <h3>{{result["name"]}}</h3>
+                                <p>{{result["description"]}} <a href="{{result["media"][random.randint(0 , result["media"] | length - 1)]}}" target="_blank">This World</a> <a href="http://google.com/search?udm=2&q=liminal {{result["name"]}}" target="_blank">More</a></p>
+                            </div>
+                            {% set result_file = result["media"][random.randint(0 , result["media"] | length - 1)] %}
+                            {% if ".mp4" in result_file : %}
+                                <div>
+                                <video width="150" height="100" controls>
+                                        <source src="{{result_file}}" type="video/mp4">
+                                        Your browser does not support the video.
+                                    </video>
+                                </div>
+                            {% elif ".mp3" in result_file : %}
+                               <audio controls>
+                                    <source src="../static/styles/audios/songs/{{result_file}}" type="audio/mp3">
+                                    Your browser does not support the audio.
+                                </audio>
+                            {% else : %}
+                                <img src="{{result_file}}" alt="{{result["name"]}}">
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+    {% endblock %}
+
+<script src="{{url_for('static' , filename='scripts/search.js')}}"></script>
+</body>
+</html>
