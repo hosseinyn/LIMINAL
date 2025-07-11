@@ -108,11 +108,17 @@
                         <img src="{{ url_for('static', filename='styles/images/icwconn1.exe_14_201-2.png') }}" class="icon" id="internet-explorer"
                             data-bs-toggle="modal"" onclick="playSound('click');">
                         <div class="icon-text no-select">Internet Explorer</div>
-                    </div>
+                </div>
+
+                <div class="group openNotePad" onclick="playSound('click');" data-bs-toggle="modal">
+                    <img class="icon mt-4" src="../static/styles/images/NOTEPAD.EXE_14_2-6.png">
+                    <div class="icon-text no-select">Notepad</div>
+                </div>
+
             </div>
         </div>
 
-                <div class="browser-container">
+        <div class="browser-container">
                     <div class="modal" id="in-explorer" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" ""
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -142,6 +148,44 @@
             </div>
         </div>
                 </div>
+
+                <div class="modal" id="modal-notepad" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header no-select">
+                        <h1 class="modal-title fs-5 no-select" id="staticBackdropLabel">
+                            <img src="../static/styles/images/NOTEPAD.EXE_14_2-6.png"
+                                style="width: 10%; margin-left: -0.8rem; margin-bottom: 0.3rem;">
+                            Notepad
+                        </h1>
+                        <button class="close-btn no-select" data-bs-dismiss="modal" aria-label="Close"
+                            onclick="playSound('click')">X</button>
+                    </div>
+                    <div class="modal-body modal-body-scrollable" id="modal-body">
+                        <div class="btn-group btn-group-sm" role="group" id="options">
+                            <button type="button" class="btn option openErrorModal"
+                                onclick="playSound('click'); playSound('error')">File</button>
+                            <button type="button" class="btn option openErrorModal"
+                                onclick="playSound('click'); playSound('error')">Edit</button>
+                            <button type="button" class="btn option openErrorModal"
+                                onclick="playSound('click'); playSound('error')">Format</button>
+                            <button type="button" class="btn option openErrorModal"
+                                onclick="playSound('click'); playSound('error')">View</button>
+                            <button type="button" class="btn option openErrorModal"
+                                onclick="playSound('click'); playSound('error')">Help</button>
+                        </div>
+                        <div class="row">
+                            <div class="col col-md-12">
+                                <div class="liminal icon-text black">
+                                    <span class="textarea" style="width: 100%;" role="textbox" contenteditable
+                                        spellcheck="false">Keep dreaming , don't wake up ! Out of reallity , in your dreams worlds.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
                 <div class="mario-container">
                     <video style="display: none;" id="mario">
@@ -296,6 +340,10 @@
 
                 $('.openBrowserModal').click(function () {
                     $('#in-explorer').modal('show');
+                })
+
+                $('.openNotePad').click(function () {
+                    $('#modal-notepad').modal('show');
                 })
             });
         </script>
@@ -724,8 +772,8 @@
                                 <strong>Email</strong>
                             </div>
                             <div class="menu-1-separator"></div>
-                            <div class="col col-md-12 no-select mb-2 menu-item openErrorModal2"
-                                onclick="playSound('click'); playSound('error')">
+                            <div class="col col-md-12 no-select mb-2 menu-item openNotePad"
+                                onclick="playSound('click');">
                                 <img src="../static/styles/images/NOTEPAD.EXE_14_2-6.png" style="width: 12%;">
                                 Notepad
                             </div>
